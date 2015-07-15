@@ -19,7 +19,8 @@ namespace FileProvidersExample
         public void Main(string[] args)
         {
             var physicalFileProvider = new PhysicalFileProvider(_appEnvironment.ApplicationBasePath);
-            Console.WriteLine("Application base: {0}", _appEnvironment.ApplicationBasePath);
+            Console.WriteLine("Root path      : {0}", _appEnvironment.ApplicationBasePath);
+            Console.WriteLine();
             physicalFileProvider.GetInfo(@"c:\github\kichalla\FileProvidersExample\src\FileProvidersExample\Program.cs");
             physicalFileProvider.GetInfo("Program.cs");
             physicalFileProvider.GetInfo("/Program.cs");

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.FileProviders;
 using Microsoft.Framework.Runtime;
+using System.Reflection;
 
 namespace FileProvidersExample
 {
@@ -18,9 +19,10 @@ namespace FileProvidersExample
 
         public void Main(string[] args)
         {
-            var physicalFileProvider = new PhysicalFileProvider(_appEnvironment.ApplicationBasePath);
             Console.WriteLine("Root path      : {0}", _appEnvironment.ApplicationBasePath);
             Console.WriteLine();
+
+            var physicalFileProvider = new PhysicalFileProvider(_appEnvironment.ApplicationBasePath);
             physicalFileProvider.GetInfo(@"c:\github\kichalla\FileProvidersExample\src\FileProvidersExample\Program.cs");
             physicalFileProvider.GetInfo("Program.cs");
             physicalFileProvider.GetInfo("/Program.cs");
@@ -28,6 +30,15 @@ namespace FileProvidersExample
             physicalFileProvider.GetInfo("FileProvidersExample/Program.cs");
             physicalFileProvider.GetInfo("/FileProvidersExample/Program.cs");
             physicalFileProvider.GetInfo(@"\FileProvidersExample\Program.cs");
+
+            Console.WriteLine("***********************************************************");
+
+            var embeddedProvider = new EmbeddedFileProvider(this.GetType().GetTypeInfo().Assembly, "FileProvidersExample.EmbeddedResources");
+            embeddedProvider.GetInfo("Blah.cshtml");
+            embeddedProvider.GetInfo("/Views/Home/Index.cshtml");
+            embeddedProvider.GetInfo("Views/Home/Index.cshtml");
+            embeddedProvider.GetInfo(@"\Views\Home\Index.cshtml");
+            embeddedProvider.GetInfo(@"Views\Home\Index.cshtml");
         }
     }
 

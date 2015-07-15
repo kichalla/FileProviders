@@ -1,0 +1,31 @@
+﻿{
+    "version": "1.0.0-*",
+    "description": "FileProvidersExample Console Application",
+    "authors": [ "kichalla" ],
+    "tags": [ "" ],
+    "projectUrl": "",
+    "licenseUrl": "",
+
+    "dependencies": {
+        "Microsoft.AspNet.FileProviders.Embedded": "1.0.0-*",
+        "Microsoft.AspNet.FileProviders.Physical": "1.0.0-*",
+        "Microsoft.Framework.Runtime.Abstractions": "1.0.0-*"
+    },
+
+    "commands": {
+        "FileProvidersExample": "FileProvidersExample"
+    },
+
+    "frameworks": {
+        "dnx451": { },
+        "dnxcore50": {
+            "dependencies": {
+                "System.Collections": "4.0.10-beta-*",
+                "System.Console": "4.0.0-beta-*",
+                "System.Linq": "4.0.0-beta-*",
+                "System.Threading": "4.0.10-beta-*",
+                "Microsoft.CSharp": "4.0.0-beta-*"
+            }
+        }
+    }
+}

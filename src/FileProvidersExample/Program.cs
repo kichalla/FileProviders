@@ -19,6 +19,7 @@ namespace FileProvidersExample
         public void Main(string[] args)
         {
             var physicalFileProvider = new PhysicalFileProvider(_appEnvironment.ApplicationBasePath);
+            Console.WriteLine("Application base: {0}", _appEnvironment.ApplicationBasePath);
             physicalFileProvider.GetInfo(@"c:\github\kichalla\FileProvidersExample\src\FileProvidersExample\Program.cs");
             physicalFileProvider.GetInfo("Program.cs");
             physicalFileProvider.GetInfo("/Program.cs");
@@ -37,6 +38,7 @@ namespace FileProvidersExample
             Console.WriteLine("Physical Path: {0}", provider.GetFileInfo(path)?.PhysicalPath);
             Console.WriteLine("Exists       : {0}", provider.GetFileInfo(path)?.Exists);
             Console.WriteLine("Name         : {0}", provider.GetFileInfo(path)?.Name);
+            Console.WriteLine();
             Console.WriteLine();
         }
     }

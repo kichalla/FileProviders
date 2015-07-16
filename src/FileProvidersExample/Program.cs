@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.FileProviders;
 using Microsoft.Framework.Runtime;
 using System.Reflection;
+using System.IO;
 
 namespace FileProvidersExample
 {
@@ -49,6 +50,7 @@ namespace FileProvidersExample
             Console.WriteLine("Path         : {0}", path);
             Console.WriteLine("Physical Path: {0}", provider.GetFileInfo(path)?.PhysicalPath);
             Console.WriteLine("Exists       : {0}", provider.GetFileInfo(path)?.Exists);
+            Console.WriteLine("File.Exists  : {0}", File.Exists(path));
             Console.WriteLine("Name         : {0}", provider.GetFileInfo(path)?.Name);
             Console.WriteLine();
             Console.WriteLine();

@@ -50,7 +50,7 @@ namespace FileProvidersExample
             Console.WriteLine("Path         : {0}", path);
             Console.WriteLine("Physical Path: {0}", provider.GetFileInfo(path)?.PhysicalPath);
             Console.WriteLine("Exists       : {0}", provider.GetFileInfo(path)?.Exists);
-            Console.WriteLine("File.Exists  : {0}", File.Exists(path));
+            Console.WriteLine("File.Exists  : {0}", File.Exists(provider.GetFileInfo(path).PhysicalPath));
             Console.WriteLine("Name         : {0}", provider.GetFileInfo(path)?.Name);
             Console.WriteLine();
             Console.WriteLine();
